@@ -1,0 +1,103 @@
+Hi Peter and Lawrence,
+
+ChatGPT seems to be getting attention in the media, so I went to https://chat.openai.com and signed up for an account (which wanted my phone number to send a pin, but didn't ask for money). Below is my first attempt.
+
+cheers, Ian.
+
+
+You can then go to https://platform.openai.com/playground and have a play around. I asked it to "write a stopwatch program for a computer", and it came beck with this...
+
+#include <iostream>
+#include <chrono>
+
+int main()
+{
+    std::cout << "Press any key to start the stopwatch.\n";
+    std::cin.get();
+    auto startTime = std::chrono::steady_clock::now();
+
+    std::cout << "Press any key to stop the stopwatch.\n";
+    std::cin.get();
+    auto endTime = std::chrono::steady_clock::now();
+
+    auto elapsedTime = endTime - startTime;
+    auto elapsedTimeInSeconds = std::chrono::duration_cast<std::chrono::seconds>(elapsedTime).count();
+
+    std::cout << "Elapsed time: " << elapsedTimeInSeconds << " seconds\n";
+
+    return 0;
+}
+
+
+... not being big on C I dunno if it works, so I asked it to, "write a stopwatch program in python", and it came back with...
+
+import time
+
+# define the start time
+start = time.time()
+
+# keep looping until user presses 'q'
+while True:
+    # print the elapsed time
+    print('Elapsed Time: {:.2f}s'.format(time.time() - start))
+    
+    # prompt user to quit
+    user_input = input('Press "q" to quit: ')
+    
+    if user_input == 'q':
+        break
+
+        
+"""
+Example of the output...
+
+$ python stopwatch.py
+Elapsed Time: 0.00s
+Press "q" to quit:  # <--- pressed Return key after 32 seconds
+Elapsed Time: 32.53s
+Press "q" to quit:  # <--- pressed Return key after 35 seconds
+Elapsed Time: 35.73s  
+
+"""
+===
+
+Feel like presenting next Monday? 😄
+
+"ChatGPT as a tool for learning Python" or "ChatGPT - a cautious tale
+for learning Python"
+
+Cheers, Peter
+
+
+> Feel like presenting next Monday?
+
+
+
+Hi Peter,
+
+It think it would be good to play around with getting ChatGPT to write python programs at a meeting. However it seems that they limit the number of users that can log in and you have to wait. Thus the catch might be that I go to log into my ChatGPT account to do the demo at the meeting and it won't let me log in.
+
+...but, assuming there is a backup presentation if I can't log in, then I'll do a ChatGPT/Python presentation. Maybe the blurb could be: "Using ChatGPT as a tool for writing Python programs."
+
+However, I've got to admit that I've just started playing with ChatGPT, so I don't know much about it.
+
+I guess those in attendance can tell me their python query, I type it into ChatGPT, and we see what the returned code looks like. 
+
+E.g. I just tried "remove duplicate strings from a python list" to see which approach to python code was returned:
+new_list = list(dict.fromkeys(lst))
+...or like this...
+new_list = list(set(lst))
+...etc. Thus when there are multiple ways of writing in python then we see what ChatGPT thinks is the best.
+
+cheers, Ian.
+
+
+
+
+
+
+
+
+
+
+
